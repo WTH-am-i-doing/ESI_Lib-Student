@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage  xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup" xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="ESIBIB_Student.Views.PopUps.Login">
+    <Frame CornerRadius="10" Padding="10" Margin="5" Visual="Material" VerticalOptions="Center">
+        <StackLayout>
+
+            <Button Text="Register" Clicked="RegisterButton_Clicked" Visual="Material"/>
+            <Button Text="Back" Clicked="BackButton_Clicked" Visual="Material"/>
+        </StackLayout>
+    </Frame>
+</pages:PopupPage>

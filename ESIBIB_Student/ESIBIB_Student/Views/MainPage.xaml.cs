@@ -1,4 +1,6 @@
 ﻿using ESIBIB_Student.Views;
+using ESIBIB_Student.Views.PopUps;
+using Rg.Plugins.Popup.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -24,9 +26,10 @@ namespace ESIBIB_Student
             await Navigation.PushAsync(new BooksList());
         }
 
-        private void Button_Clicked_1(object sender, EventArgs e)
+        private async void Button_Clicked_1(object sender, EventArgs e)
         {
             // Here Goes The Code For Extra Features That Needs The Student To Be Logged In To BE Exact Here Goes The COnnect to google part
+            await PopupNavigation.Instance.PushAsync(new Login());
         }
     }
 }
