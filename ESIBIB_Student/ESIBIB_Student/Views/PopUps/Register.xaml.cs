@@ -19,6 +19,15 @@ namespace ESIBIB_Student.Views.PopUps
             InitializeComponent();
         }
 
-        
+        private void RegisterButton_Clicked(object sender, EventArgs e)
+        {
+
+        }
+
+        private async void BackButton_Clicked(object sender, EventArgs e)
+        {
+            await PopupNavigation.Instance.RemovePageAsync(this);
+            await PopupNavigation.Instance.PushAsync(new Login());
+        }
     }
 }

@@ -7,8 +7,7 @@
              x:Class="ESIBIB_Student.MainPage">
 
     <StackLayout>
-            <Label Text="Welcome to ESI SBA Library" TextColor="Black" FontSize="Title"
-                VerticalOptions="CenterAndExpand" 
+            <Label Text="Welcome to ESI SBA Library" TextColor="Black" FontSize="Title" VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
             <Button Visual="Material" Text="Book List" CornerRadius="10" Clicked="Button_Clicked"/>
             <Button Visual="Material" Text="Login With School Account" CornerRadius="10" Clicked="Button_Clicked_1"/>

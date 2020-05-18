@@ -7,7 +7,7 @@
              x:Class="ESIBIB_Student.Views.PopUps.Register">
 
     <Frame CornerRadius="10" Padding="10" Margin="5" VerticalOptions="Center">
-        <StackLayout
+        <StackLayout>
             <Label FontSize="Title" FontAttributes="Bold" TextColor="Black"  Text="Register" HorizontalOptions="Center"/>
             <Entry x:Name="email" Placeholder="E-mail"/>
             <Entry x:Name="password" Placeholder="Password" IsPassword="True"/>
