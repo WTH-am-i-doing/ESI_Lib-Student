@@ -10,8 +10,8 @@
             <Label Text="Welcome to ESI SBA Library" TextColor="Black" FontSize="Title"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
-            <Button Text="Book List" CornerRadius="10" Clicked="Button_Clicked"/>
-            <Button Text="Login With School Account" CornerRadius="10" Clicked="Button_Clicked_1"/>
+            <Button Visual="Material" Text="Book List" CornerRadius="10" Clicked="Button_Clicked"/>
+            <Button Visual="Material" Text="Login With School Account" CornerRadius="10" Clicked="Button_Clicked_1"/>
     </StackLayout>
 
 </ContentPage>
