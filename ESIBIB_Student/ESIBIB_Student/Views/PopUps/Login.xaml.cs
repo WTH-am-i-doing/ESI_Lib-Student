@@ -18,15 +18,6 @@ namespace ESIBIB_Student.Views.PopUps
             InitializeComponent();
         }
 
-        private async void BackButton_Clicked(object sender, EventArgs e)
-        {
-            await PopupNavigation.Instance.PopAsync();
-        }
-        protected override bool OnBackButtonPressed()
-        {
-            return base.OnBackButtonPressed();
-        }
-
         private async void RegisterButton_Clicked(object sender, EventArgs e)
         {
             await PopupNavigation.Instance.RemovePageAsync(this);

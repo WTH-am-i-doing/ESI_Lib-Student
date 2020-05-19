@@ -21,12 +21,13 @@ namespace ESIBIB_Student.Views.PopUps
 
         private void RegisterButton_Clicked(object sender, EventArgs e)
         {
-
+            // Try And Send An Email To The User's Email And When He Enters The Email He Gets Added 
+            // To The Firebase Database
         }
 
         private async void BackButton_Clicked(object sender, EventArgs e)
         {
-            await PopupNavigation.Instance.RemovePageAsync(this);
+            await PopupNavigation.Instance.PopAsync();
             await PopupNavigation.Instance.PushAsync(new Login());
         }
     }
