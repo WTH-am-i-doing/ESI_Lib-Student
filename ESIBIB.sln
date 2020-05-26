@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESIBIB_Student.Android", "E
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ESIBIB_Student", "ESIBIB_Student\ESIBIB_Student\ESIBIB_Student.csproj", "{48A97564-7679-4BE5-953E-3036A02D03CC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESI_Admin", "ESI_Admin\ESI_Admin.csproj", "{501EE17F-5C80-4AF4-82A3-1330CE86C8AB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +27,10 @@ Global
 		{48A97564-7679-4BE5-953E-3036A02D03CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{48A97564-7679-4BE5-953E-3036A02D03CC}.Release|Any CPU.Build.0 = Release|Any CPU
 		{48A97564-7679-4BE5-953E-3036A02D03CC}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{501EE17F-5C80-4AF4-82A3-1330CE86C8AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{501EE17F-5C80-4AF4-82A3-1330CE86C8AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{501EE17F-5C80-4AF4-82A3-1330CE86C8AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{501EE17F-5C80-4AF4-82A3-1330CE86C8AB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

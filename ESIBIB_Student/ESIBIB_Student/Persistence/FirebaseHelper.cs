@@ -39,7 +39,7 @@ namespace ESIBIB_Student.Persistence
             }
             catch (Exception ex)
             {
-                throw new Exception("GetUsers  Additional information..." + ex, ex);
+                throw new Exception("Error - Additional information..." + ex, ex);
             }
         }
 
