@@ -18,6 +18,10 @@ namespace ESIBIB_Student.Views
             if (bk == null)
                 throw new ArgumentNullException();
             InitializeComponent();
+            if (bk.isFavorite)
+                Fav.BackgroundColor = Color.Red;
+            else
+                Fav.BackgroundColor = Color.Gray;
             BindingContext = bk;
         }
     }

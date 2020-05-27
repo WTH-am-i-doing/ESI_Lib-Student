@@ -29,6 +29,7 @@ namespace ESIBIB_Student
         private async void Button_Clicked_1(object sender, EventArgs e)
         {
             // Here Goes The Code For Extra Features That Needs The Student To Be Logged In To BE Exact Here Goes The COnnect to google part
+            
             await PopupNavigation.Instance.PushAsync(new Login());
         }
     }
