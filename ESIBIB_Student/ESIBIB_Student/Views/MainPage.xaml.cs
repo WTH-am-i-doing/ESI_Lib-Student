@@ -21,9 +21,10 @@ namespace ESIBIB_Student
             InitializeComponent();
         }
 
-        private async void Button_Clicked(object sender, EventArgs e)
+        private  void Button_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new BooksList());
+            App.Current.MainPage = new ShellPage();
+            //await Navigation.PushAsync(new ShellPage());
         }
 
         private async void Button_Clicked_1(object sender, EventArgs e)

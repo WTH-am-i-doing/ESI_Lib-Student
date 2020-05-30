@@ -3,17 +3,17 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d" NavigationPage.HasBackButton="False"
+             mc:Ignorable="d" 
              x:Class="ESIBIB_Student.Views.BooksList">
-    <!-- This is the search bar that shows on top of the page -->
+    <!-- This is the search bar that shows on top of the page 
     <NavigationPage.TitleView>
         <SearchBar Placeholder="Search ... " Visual="Material" TextChanged="SearchBar_TextChanged"/>
     </NavigationPage.TitleView>
-    <!-- These Are The Elements of the three dots menu -->
+    <These Are The Elements of the three dots menu
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Show Favorites Only" Clicked="ToolbarItem_Clicked" Order="Secondary"/>
     </ContentPage.ToolbarItems>
-     <!--THis is the list of items -->
+     THis is the list of items -->
     <StackLayout>
         <ListView x:Name="bookList" HasUnevenRows="True"
                   ItemTapped="bookList_ItemTapped"

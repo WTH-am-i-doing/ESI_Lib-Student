@@ -65,27 +65,10 @@ namespace ESIBIB_Student.Views
         }
 
 
-       /* private async void ToolbarItem_Clicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new AdvancedSearch()); 
-        }*/
-
-
         private async void bookList_ItemTapped(object sender, ItemTappedEventArgs e)
         {
             var book = e.Item as Book;
-            await Navigation.PushAsync(new BookView(_connection,book));
-        }
-
-        private void SearchBar_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            bookList.ItemsSource = _books.Where(b => (b.Title.ToLower().Contains(e.NewTextValue) || b.Author.ToLower().Contains(e.NewTextValue) || b.Description.ToLower().Contains(e.NewTextValue)));
-        }
-
-        private void ToolbarItem_Clicked(object sender, EventArgs e)
-        {
-            bookList.ItemsSource = _books.Where(b => (b.isFavorite));
-
+            await Shell.Current.Navigation.PushAsync(new BookView(_connection,book));
         }
     }
 }
