@@ -16,9 +16,34 @@ namespace ESIBIB_Student
     [DesignTimeVisible(false)]
     public partial class MainPage : ContentPage
     {
+        private CarouselItem item = new CarouselItem() { 
+            carouselItms= new List<CarouselItm>
+            {
+                new CarouselItm
+                {
+                    imgurl="https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/De_La_Salle_College_of_Saint_Benilde_Library.jpg/1200px-De_La_Salle_College_of_Saint_Benilde_Library.jpg",
+                    title ="The Whole Library Catalogue",
+                    description="If you are looking for a book in the library, Just look it up here instead of going to the actual library"
+                },
+                new CarouselItm
+                {
+                    imgurl="https://images.wisegeek.com/man-looking-at-books-on-shelf-in-store.jpg",
+                    title ="Offline Viewing",
+                    description="The Books List is Always Available in Your Pocket Whenever You Need It Even if You Are Offline"
+                },
+                new CarouselItm
+                {
+                    imgurl="https://images.wisegeek.com/man-looking-at-books-on-shelf-in-store.jpg",
+                    title ="Find Any Book You Want",
+                    description="You Can Look For The Books You Want"
+                }
+            }
+        };
         public MainPage()
         {
             InitializeComponent();
+            BindingContext = item;
+            
         }
 
         private  void Button_Clicked(object sender, EventArgs e)
@@ -33,5 +58,17 @@ namespace ESIBIB_Student
             
             await PopupNavigation.Instance.PushAsync(new Login());
         }
+    }
+
+    class CarouselItem
+    {
+        public List<CarouselItm> carouselItms { get; set; }
+    }
+
+    internal class CarouselItm
+    {
+        public string imgurl { get; set; }
+        public string title { get; set; }
+        public string description { get; set; }
     }
 }

@@ -16,7 +16,7 @@
      THis is the list of items -->
     <StackLayout>
         <ListView x:Name="bookList" HasUnevenRows="True"
-                  ItemTapped="bookList_ItemTapped"
+                  ItemTapped="bookList_ItemTapped" SelectionMode="None"
                   IsPullToRefreshEnabled="True" Refreshing="bookList_Refreshing" SeparatorVisibility="None">
             <ListView.ItemTemplate>
                 <DataTemplate>

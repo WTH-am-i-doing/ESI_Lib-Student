@@ -44,6 +44,7 @@ namespace ESIBIB_Student.Views
         {
             try { 
             var allBOOKs = await firebaseHelper.GetAllBooks();
+            //var favs = _books.Where(b => b.isFavorite);
             await _connection.DropTableAsync<Book>();
             await _connection.CreateTableAsync<Book>();
             await _connection.InsertAllAsync(allBOOKs);

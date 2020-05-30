@@ -28,7 +28,14 @@ namespace ESIBIB_Student.Views.PopUps
         private async void BackButton_Clicked(object sender, EventArgs e)
         {
             await PopupNavigation.Instance.PopAsync();
-            await PopupNavigation.Instance.PushAsync(new Login());
+            try
+            {
+                //await PopupNavigation.Instance.PushAsync(new Login());
+            }
+            catch
+            {
+
+            }
         }
     }
 }

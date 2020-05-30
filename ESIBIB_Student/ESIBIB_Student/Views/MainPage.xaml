@@ -6,11 +6,39 @@
              mc:Ignorable="d" Padding="10" NavigationPage.HasNavigationBar="False"
              x:Class="ESIBIB_Student.MainPage">
 
-    <StackLayout>
-            <Label Text="Welcome to ESI SBA Library" TextColor="Black" FontSize="Title" VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-            <Button Visual="Material" Text="Book List" CornerRadius="10" Clicked="Button_Clicked"/>
-            <Button Visual="Material" Text="Login With School Account" CornerRadius="10" Clicked="Button_Clicked_1"/>
+    <StackLayout VerticalOptions="CenterAndExpand">
+        <CarouselView ItemsSource="{Binding carouselItms}" HeightRequest="400" IndicatorView="indicatorView">
+            <CarouselView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout VerticalOptions="CenterAndExpand">
+                        <Image Source="{Binding imgurl}" HeightRequest="300" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" Aspect="AspectFill"/>
+                        <Label Text="{Binding title}" FontSize="Large" FontAttributes="Bold" TextColor="Black" HorizontalTextAlignment="Center"/>
+                        <Label Text="{Binding description}" TextColor="Black" HorizontalTextAlignment="Center"/>
+                    </StackLayout>
+                </DataTemplate>
+            </CarouselView.ItemTemplate>
+        </CarouselView>
+        <IndicatorView x:Name="indicatorView"
+                   IndicatorColor="Gray" Margin="10" IndicatorsShape="Circle"
+                   SelectedIndicatorColor="Black" Padding="0"
+                   HorizontalOptions="Center">
+            <IndicatorView.IndicatorTemplate>
+                <DataTemplate>
+                    <Frame IsClippedToBounds="True" Padding="5" WidthRequest="12" HeightRequest="12" CornerRadius="50" BackgroundColor="Transparent">
+                        <Image Margin="0">
+                            <Image.Source>
+                                <FontImageSource
+                            FontFamily="{x:StaticResource Solid}"
+                            Glyph="&#xf12a;"
+                            Size="16" Color="White"/>
+                            </Image.Source>
+                        </Image>
+                    </Frame>
+                </DataTemplate>
+            </IndicatorView.IndicatorTemplate>
+        </IndicatorView>
+        <Button Visual="Material" HorizontalOptions="FillAndExpand" HeightRequest="40" Text="Book List" CornerRadius="10" Clicked="Button_Clicked"/>
+        <Button Visual="Material" HorizontalOptions="FillAndExpand" HeightRequest="40" Text="Login With School Account" CornerRadius="10" Clicked="Button_Clicked_1"/>
     </StackLayout>
 
 </ContentPage>

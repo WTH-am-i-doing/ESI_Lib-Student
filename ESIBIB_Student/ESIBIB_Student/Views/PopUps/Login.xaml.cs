@@ -20,7 +20,13 @@ namespace ESIBIB_Student.Views.PopUps
 
         private async void RegisterButton_Clicked(object sender, EventArgs e)
         {
-            await PopupNavigation.Instance.RemovePageAsync(this);
+            try { 
+            //await PopupNavigation.Instance.RemovePageAsync(this);
+            }
+            catch
+            {
+
+            }
             await PopupNavigation.Instance.PushAsync(new Register());
         }
     }

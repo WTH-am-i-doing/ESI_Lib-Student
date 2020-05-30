@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Shell xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:popups="clr-namespace:ESIBIB_Student.Views.PopUps"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design" xmlns:views="clr-namespace:ESIBIB_Student.Views"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:controls="clr-namespace:ESIBIB_Student.Persistence"
-            mc:Ignorable="d" FlyoutHeaderBehavior="CollapseOnScroll" NavigationPage.HasNavigationBar="False"
+            mc:Ignorable="d" FlyoutHeaderBehavior="CollapseOnScroll" Shell.TabBarIsVisible="False"
        x:Class="ESIBIB_Student.Views.ShellPage">
     <Shell.FlyoutHeader>
         <controls:FlyoutHeader />
@@ -41,7 +41,10 @@
        #endregion-->
     </FlyoutItem>
 
-
+    <ShellContent Title="Login"
+                  FlyoutIcon="&#xf007;"
+                  ContentTemplate="{DataTemplate popups:Login}" />
+    
     <ShellContent Title="About"
                   FlyoutIcon="&#xf059;"
                   ContentTemplate="{DataTemplate views:About}" />
