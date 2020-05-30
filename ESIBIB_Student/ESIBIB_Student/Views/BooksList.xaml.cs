@@ -42,12 +42,18 @@ namespace ESIBIB_Student.Views
 
         private async void bookList_Refreshing(object sender, EventArgs e)
         {
+            try { 
             var allBOOKs = await firebaseHelper.GetAllBooks();
             await _connection.DropTableAsync<Book>();
             await _connection.CreateTableAsync<Book>();
             await _connection.InsertAllAsync(allBOOKs);
             bookList.ItemsSource = allBOOKs;
             bookList.EndRefresh();
+            }
+            catch
+            {
+                await DisplayAlert("Error", "Check Your Internet Connection", "Alright");
+            }
         }
 
         private async void MenuItem_Clicked(object sender, EventArgs e)
@@ -68,7 +74,7 @@ namespace ESIBIB_Student.Views
         private async void bookList_ItemTapped(object sender, ItemTappedEventArgs e)
         {
             var book = e.Item as Book;
-            await Navigation.PushAsync(new BookView(book));
+            await Navigation.PushAsync(new BookView(_connection,book));
         }
 
         private void SearchBar_TextChanged(object sender, TextChangedEventArgs e)
