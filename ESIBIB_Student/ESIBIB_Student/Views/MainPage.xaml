@@ -6,12 +6,14 @@
              mc:Ignorable="d" Padding="10" NavigationPage.HasNavigationBar="False"
              x:Class="ESIBIB_Student.MainPage">
 
-    <StackLayout VerticalOptions="CenterAndExpand">
+    <StackLayout VerticalOptions="CenterAndExpand" Padding="10">
         <CarouselView ItemsSource="{Binding carouselItms}" HeightRequest="400" IndicatorView="indicatorView">
             <CarouselView.ItemTemplate>
                 <DataTemplate>
-                    <StackLayout VerticalOptions="CenterAndExpand">
-                        <Image Source="{Binding imgurl}" HeightRequest="300" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" Aspect="AspectFill"/>
+                    <StackLayout VerticalOptions="CenterAndExpand" >
+                        <Frame IsClippedToBounds="True" Padding="0" CornerRadius="20" HeightRequest="300">
+                            <Image Source="{Binding imgurl}"  HorizontalOptions="CenterAndExpand" HeightRequest="300" VerticalOptions="Center" Aspect="AspectFill" Margin="-20"/>
+                        </Frame>
                         <Label Text="{Binding title}" FontSize="Large" FontAttributes="Bold" TextColor="Black" HorizontalTextAlignment="Center"/>
                         <Label Text="{Binding description}" TextColor="Black" HorizontalTextAlignment="Center"/>
                     </StackLayout>
@@ -19,8 +21,8 @@
             </CarouselView.ItemTemplate>
         </CarouselView>
         <IndicatorView x:Name="indicatorView"
-                   IndicatorColor="Gray" Margin="10" IndicatorsShape="Circle"
-                   SelectedIndicatorColor="Black" Padding="0"
+                   IndicatorColor="Black" Margin="10" IndicatorsShape="Circle"
+                   SelectedIndicatorColor="#888" Padding="0"
                    HorizontalOptions="Center">
             <IndicatorView.IndicatorTemplate>
                 <DataTemplate>
@@ -28,17 +30,17 @@
                         <Image Margin="0">
                             <Image.Source>
                                 <FontImageSource
-                            FontFamily="{x:StaticResource Solid}"
-                            Glyph="&#xf12a;"
-                            Size="16" Color="White"/>
+                                    FontFamily="{x:StaticResource Solid}"
+                                    Glyph="&#xf12a;"
+                                    Size="16" Color="White"/>
                             </Image.Source>
                         </Image>
                     </Frame>
                 </DataTemplate>
             </IndicatorView.IndicatorTemplate>
         </IndicatorView>
-        <Button Visual="Material" HorizontalOptions="FillAndExpand" HeightRequest="40" Text="Book List" CornerRadius="10" Clicked="Button_Clicked"/>
-        <Button Visual="Material" HorizontalOptions="FillAndExpand" HeightRequest="40" Text="Login With School Account" CornerRadius="10" Clicked="Button_Clicked_1"/>
+        <Button Visual="Material" HorizontalOptions="FillAndExpand" HeightRequest="40" Text="Book List" CornerRadius="10" TextColor="White" Clicked="Button_Clicked"/>
+        <Button Visual="Material" HorizontalOptions="FillAndExpand" HeightRequest="40" Text="Login With School Account" CornerRadius="10" TextColor="White" Clicked="Button_Clicked_1"/>
     </StackLayout>
 
 </ContentPage>

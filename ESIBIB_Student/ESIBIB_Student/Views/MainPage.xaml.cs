@@ -27,7 +27,7 @@ namespace ESIBIB_Student
                 },
                 new CarouselItm
                 {
-                    imgurl="https://images.wisegeek.com/man-looking-at-books-on-shelf-in-store.jpg",
+                    imgurl="https://www.quickenloans.com/blog/wp-content/uploads/2016/01/Young-man-standing-on-the-street-corner-looking-at-cell-phone-e1508770152120.png",
                     title ="Offline Viewing",
                     description="The Books List is Always Available in Your Pocket Whenever You Need It Even if You Are Offline"
                 },
