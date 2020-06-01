@@ -10,8 +10,10 @@
         <CarouselView ItemsSource="{Binding carouselItms}" HeightRequest="400" IndicatorView="indicatorView">
             <CarouselView.ItemTemplate>
                 <DataTemplate>
-                    <StackLayout VerticalOptions="CenterAndExpand">
-                        <Image Source="{Binding imgurl}" HeightRequest="300" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" Aspect="AspectFill"/>
+                    <StackLayout VerticalOptions="CenterAndExpand" >
+                        <Frame IsClippedToBounds="True" Padding="0" CornerRadius="20" HeightRequest="300">
+                            <Image Source="{Binding imgurl}"  HorizontalOptions="CenterAndExpand" HeightRequest="300" VerticalOptions="Center" Aspect="AspectFill" Margin="-20"/>
+                        </Frame>
                         <Label Text="{Binding title}" FontSize="Large" FontAttributes="Bold" TextColor="Black" HorizontalTextAlignment="Center"/>
                         <Label Text="{Binding description}" TextColor="Black" HorizontalTextAlignment="Center"/>
                     </StackLayout>
@@ -28,9 +30,9 @@
                         <Image Margin="0">
                             <Image.Source>
                                 <FontImageSource
-                            FontFamily="{x:StaticResource Solid}"
-                            Glyph="&#xf12a;"
-                            Size="16" Color="White"/>
+                                    FontFamily="{x:StaticResource Solid}"
+                                    Glyph="&#xf12a;"
+                                    Size="16" Color="White"/>
                             </Image.Source>
                         </Image>
                     </Frame>
