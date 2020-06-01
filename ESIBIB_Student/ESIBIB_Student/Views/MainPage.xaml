@@ -6,7 +6,7 @@
              mc:Ignorable="d" Padding="10" NavigationPage.HasNavigationBar="False"
              x:Class="ESIBIB_Student.MainPage">
 
-    <StackLayout VerticalOptions="CenterAndExpand">
+    <StackLayout VerticalOptions="CenterAndExpand" Padding="10">
         <CarouselView ItemsSource="{Binding carouselItms}" HeightRequest="400" IndicatorView="indicatorView">
             <CarouselView.ItemTemplate>
                 <DataTemplate>
@@ -21,8 +21,8 @@
             </CarouselView.ItemTemplate>
         </CarouselView>
         <IndicatorView x:Name="indicatorView"
-                   IndicatorColor="Gray" Margin="10" IndicatorsShape="Circle"
-                   SelectedIndicatorColor="Black" Padding="0"
+                   IndicatorColor="Black" Margin="10" IndicatorsShape="Circle"
+                   SelectedIndicatorColor="#888" Padding="0"
                    HorizontalOptions="Center">
             <IndicatorView.IndicatorTemplate>
                 <DataTemplate>
@@ -39,8 +39,8 @@
                 </DataTemplate>
             </IndicatorView.IndicatorTemplate>
         </IndicatorView>
-        <Button Visual="Material" HorizontalOptions="FillAndExpand" HeightRequest="40" Text="Book List" CornerRadius="10" Clicked="Button_Clicked"/>
-        <Button Visual="Material" HorizontalOptions="FillAndExpand" HeightRequest="40" Text="Login With School Account" CornerRadius="10" Clicked="Button_Clicked_1"/>
+        <Button Visual="Material" HorizontalOptions="FillAndExpand" HeightRequest="40" Text="Book List" CornerRadius="10" TextColor="White" Clicked="Button_Clicked"/>
+        <Button Visual="Material" HorizontalOptions="FillAndExpand" HeightRequest="40" Text="Login With School Account" CornerRadius="10" TextColor="White" Clicked="Button_Clicked_1"/>
     </StackLayout>
 
 </ContentPage>

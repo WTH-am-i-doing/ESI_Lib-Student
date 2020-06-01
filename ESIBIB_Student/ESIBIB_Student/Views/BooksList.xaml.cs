@@ -18,7 +18,7 @@ namespace ESIBIB_Student.Views
     public partial class BooksList : ContentPage
     {
         private ObservableCollection<Book> _books;
-        private SQLiteAsyncConnection _connection;
+        public static SQLiteAsyncConnection _connection;
 
         internal ObservableCollection<Book> Books { get => _books; set => _books = value; }
 
