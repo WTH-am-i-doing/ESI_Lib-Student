@@ -65,8 +65,14 @@
     <PackageReference Include="sqlite-net-pcl">
       <Version>1.7.335</Version>
     </PackageReference>
+    <PackageReference Include="Xamarin.Firebase.Auth">
+      <Version>71.1605.1</Version>
+    </PackageReference>
     <PackageReference Include="Xamarin.Firebase.Common">
       <Version>71.1610.1</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Firebase.Core">
+      <Version>71.1601.1</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Firebase.Iid">
       <Version>71.1710.1</Version>
@@ -91,6 +97,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MainActivity.cs" />
+    <Compile Include="Persistence\FirebaseAuthentication.cs" />
     <Compile Include="Persistence\SQLiteDb.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -99,6 +106,7 @@
     <AndroidAsset Include="Assets\Brands.otf" />
     <AndroidAsset Include="Assets\Regular.otf" />
     <AndroidAsset Include="Assets\Solid.otf" />
+    <None Include="google-services.json" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
     <None Include="Properties\AndroidManifest.xml" />
