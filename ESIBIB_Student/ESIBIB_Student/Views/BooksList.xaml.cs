@@ -43,18 +43,18 @@ namespace ESIBIB_Student.Views
         private async void bookList_Refreshing(object sender, EventArgs e)
         {
             try { 
-            var allBOOKs = await firebaseHelper.GetAllBooks();
-            //var favs = _books.Where(b => b.isFavorite);
-            await _connection.DropTableAsync<Book>();
-            await _connection.CreateTableAsync<Book>();
-            await _connection.InsertAllAsync(allBOOKs);
-            bookList.ItemsSource = allBOOKs;
-            bookList.EndRefresh();
+                var allBOOKs = await firebaseHelper.GetAllBooks();
+                //var favs = _books.Where(b => b.isFavorite);
+                await _connection.DropTableAsync<Book>();
+                await _connection.CreateTableAsync<Book>();
+                await _connection.InsertAllAsync(allBOOKs);
+                bookList.ItemsSource = allBOOKs;
             }
             catch
             {
                 await DisplayAlert("Error", "Check Your Internet Connection", "Alright");
             }
+            bookList.EndRefresh();
         }
 
         private async void MenuItem_Clicked(object sender, EventArgs e)
