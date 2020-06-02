@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ESIBIB_Student", "ESIBIB_St
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESI_Admin", "ESI_Admin\ESI_Admin.csproj", "{501EE17F-5C80-4AF4-82A3-1330CE86C8AB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "shitty_shit1", "..\shitty_shit1\shitty_shit1.csproj", "{2C5CD951-F765-40A1-A9BA-3A3B1A38B260}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +33,10 @@ Global
 		{501EE17F-5C80-4AF4-82A3-1330CE86C8AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{501EE17F-5C80-4AF4-82A3-1330CE86C8AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{501EE17F-5C80-4AF4-82A3-1330CE86C8AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C5CD951-F765-40A1-A9BA-3A3B1A38B260}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C5CD951-F765-40A1-A9BA-3A3B1A38B260}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C5CD951-F765-40A1-A9BA-3A3B1A38B260}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C5CD951-F765-40A1-A9BA-3A3B1A38B260}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
