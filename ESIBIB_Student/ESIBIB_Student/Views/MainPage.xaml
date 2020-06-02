@@ -26,12 +26,12 @@
                    HorizontalOptions="Center">
             <IndicatorView.IndicatorTemplate>
                 <DataTemplate>
-                    <Frame IsClippedToBounds="True" Padding="5" WidthRequest="12" HeightRequest="12" CornerRadius="50" BackgroundColor="Transparent">
+                    <Frame IsClippedToBounds="True" Padding="8" WidthRequest="12" HeightRequest="12" CornerRadius="50" BackgroundColor="Transparent">
                         <Image Margin="0">
                             <Image.Source>
                                 <FontImageSource
                                     FontFamily="{x:StaticResource Solid}"
-                                    Glyph="&#xf12a;"
+                                    Glyph="&#xf753;"
                                     Size="16" Color="White"/>
                             </Image.Source>
                         </Image>

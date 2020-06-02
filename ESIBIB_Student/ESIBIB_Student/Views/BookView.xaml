@@ -5,7 +5,6 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" Visual="Material" Shell.NavBarIsVisible="False" Shell.TabBarIsVisible="False"
              x:Class="ESIBIB_Student.Views.BookView" BackgroundColor="WhiteSmoke">
-    <ContentPage.Content>
         
         <!-- Turn This Into Absolute Layout if Necessary I Guess it woudl eb better than the actual stack layout-->
         
@@ -18,21 +17,21 @@
                 <Frame x:Name="ImageSubview" HasShadow="False" BorderColor="Transparent" BackgroundColor="Transparent" CornerRadius="20" Margin="0,0,0,0" Padding="0" IsClippedToBounds="True" HorizontalOptions="Center" HeightRequest="210">
                     <Image BackgroundColor="Transparent" HeightRequest="210" Margin="0" Source="{Binding Coverurl}" x:Name="MainImg" HorizontalOptions="CenterAndExpand" WidthRequest="200" VerticalOptions="CenterAndExpand" Aspect="AspectFit"/>
                 </Frame>
-                <Frame BackgroundColor="#333" CornerRadius="32" Margin="10" Padding="5">
+                <Frame BackgroundColor="Transparent" CornerRadius="12" Margin="10" Padding="5" BorderColor="Black">
                     <StackLayout Padding="10">
-                        <Frame BackgroundColor="Gray" Padding="2" HorizontalOptions="Center" VerticalOptions="Center">
-                            <Label Text="{Binding ISBN,StringFormat='ISBN : {0}'}" TextColor="White" Margin="0"/>
-                        </Frame>
+                       
                         <Label Text="{Binding Author}" TextColor="Gray"  HorizontalTextAlignment="Center" />
                         <Label Text="{Binding Title}" HorizontalTextAlignment="Center" FontSize="24" FontAttributes="Bold" TextColor="Black"/>
+                         <Frame BackgroundColor="Gray" Padding="2" HorizontalOptions="Center" VerticalOptions="Center">
+                            <Label Text="{Binding ISBN,StringFormat='ISBN : {0}'}" TextColor="White" Margin="0"/>
+                        </Frame>
                         <BoxView HeightRequest="1" Color="Gray" Margin="20"/>
                         <Label Text="{Binding Description}"/>
-                        <BoxView Color="Gray" HeightRequest="2" Margin="20"/>
+                        <BoxView Color="Gray" HeightRequest="1" Margin="20"/>
                         <Label Text="{Binding Available,StringFormat='Available : {0}'}"/>
                     </StackLayout>
                 </Frame>
                 
             </StackLayout>
         </ScrollView>
-    </ContentPage.Content>
 </ContentPage>
