@@ -20,7 +20,7 @@ namespace ESIBIB_Student.Persistence
         {
 
             try
-            {
+            { 
                 return (await firebase
                .Child("Book")
                .OnceAsync<Book>()).Select(item => new Book
@@ -38,6 +38,15 @@ namespace ESIBIB_Student.Persistence
             {
                 throw new Exception("Error - Additional information..." + ex, ex);
             }
+        }
+
+        // Adding A Book To THe Firebase Database
+        public async Task AddRequest(Request request)
+        {
+            await firebase
+              .Child("Requests")
+              .PostAsync(request);
+
         }
 
     }
