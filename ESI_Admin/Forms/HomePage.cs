@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace shitty_shit
+namespace ESI_Admin
 {
     public partial class HomePage : Form
     {

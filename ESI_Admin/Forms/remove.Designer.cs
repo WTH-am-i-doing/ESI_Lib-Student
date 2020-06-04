@@ -1,4 +1,4 @@
-﻿namespace shitty_shit
+﻿namespace ESI_Admin
 {
     partial class remove
     {

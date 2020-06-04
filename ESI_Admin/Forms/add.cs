@@ -11,7 +11,7 @@ using System.Windows.Forms;
 using System.Data;
 using System.Data.SqlClient;
 
-namespace shitty_shit
+namespace ESI_Admin
 {
     public partial class add : Form
     {
