@@ -7,13 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data;
 using System.Data.SqlClient;
 
 namespace ESI_Admin
 {
     public partial class update : Form
     {
+        private FirebaseHelper helper = new FirebaseHelper();
         public update()
         {
             InitializeComponent();
@@ -21,7 +21,7 @@ namespace ESI_Admin
 
         DBAccess objt = new DBAccess();
         DataTable dtbooks = new DataTable();
-        public string id ,isbn, title, author, description, numAvailable;
+        public string id ,isbn, title, author, description, numAvailable,bookurl;
         //FirebaseHelper firebasehelper = new FirebaseHelper();
 
 
@@ -31,29 +31,39 @@ namespace ESI_Admin
             this.Close();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private async void button1_Click(object sender, EventArgs e)
         {
-            //once you enter 
-            isbn = textBox1.Text; //could be null or not
-            title = textBox2.Text; //must not be null or not
-            author = textBox3.Text; //could be null
-            description = textBox5.Text; //could be null
-            numAvailable = textBox4.Text; //could be null
-
-            if (title == "" && isbn == "")
+            if (isbn == "")
             {
                 MessageBox.Show("please enter a title or an isbn!");
             }
             else
             {
-                string query = "Select * from books Where isbn ='" + isbn + "' OR title ='" + title + "' ";
+                var bok = await helper.GetBook(bkISBN.Text);
+                if (bok == null)
+                {
+                    label6.Text = "not Available";
+                    label6.ForeColor = Color.Red;
+                }
+                else
+                {
+                    label6.Text = "Available";
+                    label6.ForeColor = Color.Green;
+                    bkTitle.Text = bok.Title;
+                    bkAuthor.Text = bok.Author;
+                    numericUpDown1.Value = bok.Available;
+                    bkDesc.Text = bok.Description;
+                    bookurl = bok.Coverurl;
+                }
+
+
+                /*string query = "Select * from books Where isbn ='" + isbn + "' OR title ='" + title + "' ";
                 objt.readDatathroughAdapter(query, dtbooks);
 
                 if (dtbooks.Rows.Count == 1)
                 {
                     
 
-                    label6.Text= "available";
                     objt.closeConn();
                     id = dtbooks.Rows[0]["id"].ToString();
                     textBox1.Text = dtbooks.Rows[0]["isbn"].ToString();
@@ -67,17 +77,17 @@ namespace ESI_Admin
                 else
                 {
                     label6.Text = "not available";
-                }
+                }*/
             }
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private async void button3_Click(object sender, EventArgs e)
         {
-            isbn = textBox1.Text; //could be null or not
-            title = textBox2.Text; //must not be null or not
-            author = textBox3.Text; //could be null
-            description = textBox5.Text; //could be null
-            numAvailable = textBox4.Text;
+            isbn = bkISBN.Text; //could be null or not
+            title = bkTitle.Text; //must not be null or not
+            author = bkAuthor.Text; //could be null
+            description = bkDesc.Text; //could be null
+            var number = numericUpDown1.Value;
             if (isbn.Equals(""))
             {
                 MessageBox.Show("please enter an isbn!");
@@ -94,13 +104,22 @@ namespace ESI_Admin
             {
                 MessageBox.Show("please enter a description!");
             }
-            else if (numAvailable.Equals(""))
+            else if (number <= 0)
             {
                 MessageBox.Show("please enter the number of books available!");
             }
             else
             {
-                string query = "Update books SET isbn='" + @isbn + "' , title= '" + @title + "' , author= '" + @author + "', description= '" + @description + "' , available ='" + @numAvailable + "' where id='" + id + "'";
+                var boktoUpdate = new Book() {
+                    Description = bkDesc.Text,
+                    Author = bkAuthor.Text,
+                    Available = (int)numericUpDown1.Value,
+                    Coverurl = bookurl,
+                    ISBN = bkISBN.Text,
+                    Title = bkTitle.Text,
+                };
+                await helper.UpdateBook(bkISBN.Text, boktoUpdate);
+                /*string query = "Update books SET isbn='" + @isbn + "' , title= '" + @title + "' , author= '" + @author + "', description= '" + @description + "' , available ='" + @numAvailable + "' where id='" + id + "'";
                 SqlCommand updateCommand = new SqlCommand(query);
                 updateCommand.Parameters.AddWithValue("@isbn", isbn);
                 updateCommand.Parameters.AddWithValue("@title", title);
@@ -116,7 +135,7 @@ namespace ESI_Admin
                 else
                 {
                     MessageBox.Show("error retry!");
-                }
+                }*/
 
                 //try
                 //{
@@ -126,7 +145,7 @@ namespace ESI_Admin
                 //catch
                 //{
                 //    MessageBox.Show("Book Couldn't Be Updated", "The Book Has Not Beed Updated to The Database", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
+            }
         }
     }
 

@@ -1,4 +1,4 @@
-﻿namespace Persistence
+﻿namespace ESI_Admin
 {
     public class Book
     {

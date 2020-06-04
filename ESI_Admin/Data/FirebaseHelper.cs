@@ -2,9 +2,11 @@
 using Firebase.Database.Query;
 using System;
 using System.Collections.Generic;
+using System.Drawing.Design;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace ESI_Admin
 {
@@ -17,12 +19,11 @@ namespace ESI_Admin
         }
 
         // Adding A Book To THe Firebase Database
-        public async Task AddBook(string Title, string Writer, string Description,string isbn,int available,string coverurl)
+        public async Task AddBook(Book book)
         {
             await firebase
               .Child("Book")
-              .PostAsync(new Book() { Title = Title, Author = Writer, Description = Description ,Available = available,Coverurl = coverurl,ISBN=isbn});
-        
+              .PostAsync(book);
         }
 
 
@@ -64,16 +65,51 @@ namespace ESI_Admin
 
 
         // Updating A Book 
-        public async Task UpdateBook(string ISBN,Book bk)
+        public async Task UpdateBook(string ISBN,Book bk,string key = null)
         {
-            var toUpdateBook = (await firebase
-              .Child("Book")
-              .OnceAsync<Book>()).Where(a => a.Object.ISBN == ISBN).FirstOrDefault();
-
+            if(key == null) { 
+                var toUpdateBook = (await firebase
+                    .Child("Book")
+                    .OnceAsync<Book>()).Where(a => a.Object.ISBN == ISBN).FirstOrDefault();
+                key = toUpdateBook.Key;
+            }
             await firebase
               .Child("Book")
-              .Child(toUpdateBook.Key)
+              .Child(key)
               .PutAsync(bk);
+        }
+
+        // THis Gets All The Requests
+        public async Task<List<Request>> GetRequests()
+        {
+
+            try
+            {
+                return (await firebase
+               .Child("Book")
+               .OnceAsync<Request>()).Select(item => new Request
+               {
+                   BookISBN = item.Object.BookISBN,
+                   BookTitle = item.Object.BookTitle,
+                   dateTime = item.Object.dateTime,
+                   isAccepted = item.Object.isAccepted,
+                   ReqKey = item.Object.ReqKey,
+                   UserEmail = item.Object.UserEmail
+               }).ToList();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("GetUsers  Additional information..." + ex, ex);
+            }
+        }
+
+        public async Task UpdateRequest(Request rq,bool yesno)
+        {
+            rq.isAccepted = yesno;
+            await firebase
+              .Child("Requests")
+              .Child(rq.ReqKey)
+              .PutAsync(rq);
         }
 
     }

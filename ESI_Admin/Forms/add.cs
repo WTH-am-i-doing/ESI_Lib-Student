@@ -8,7 +8,6 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data;
 using System.Data.SqlClient;
 
 namespace ESI_Admin
@@ -16,7 +15,7 @@ namespace ESI_Admin
     public partial class add : Form
     {
         DBAccess dbobj = new DBAccess();
-        
+        private FirebaseHelper helper = new FirebaseHelper();
 
         public add()
         {
@@ -30,7 +29,18 @@ namespace ESI_Admin
 
         private async void button1_Click(object sender, EventArgs e)
         {
-            //description??
+            var bk = new Book() {
+                Author = author.Text,
+                Available = (int)available.Value,
+                Coverurl = CoverURL.Text,
+                Description = description.Text,
+                ISBN = isbn.Text,
+                Title = title.Text
+            };
+            await helper.AddBook(bk);
+
+
+            /*//description??
             string isbn = textBox1.Text; //could be null
             string title = textBox2.Text; //must not be null
             string author = textBox3.Text; //must not be null
@@ -67,12 +77,38 @@ namespace ESI_Admin
                 
                 //MessageBox.Show("Book Added", "The Book Has Beed Added to The Database", MessageBoxButtons.OK, MessageBoxIcon.Information);
             } 
-
+*/
         
         }
 
         private void add_Load(object sender, EventArgs e)
         {
+
+        }
+
+
+        private void textBox6_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private async void button3_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var book = await Isbn.GetBook(isbn.Text);
+                if (book != null)
+                {
+                    title.Text = book.Title;
+                    author.Text = book.Author;
+                    description.Text = book.Description;
+                    CoverURL.Text = book.Coverurl;
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Couldn't Fin The Book Using The API", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
         }
     }
