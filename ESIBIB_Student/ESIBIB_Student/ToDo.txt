@@ -1,6 +1,2 @@
-﻿* Book Requests Gets Sent to Admin Either Through App or Software
-
-
-* Recommend Books To Student With Paths
-
-Dance c:
+﻿// 
+Modular Popups Yet Not Completed 

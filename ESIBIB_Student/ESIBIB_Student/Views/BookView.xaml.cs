@@ -1,4 +1,6 @@
 ﻿using ESIBIB_Student.Models;
+using ESIBIB_Student.Views.PopUps;
+using Rg.Plugins.Popup.Services;
 using SQLite;
 using System;
 using System.Collections.Generic;
@@ -44,6 +46,19 @@ namespace ESIBIB_Student.Views
                 Fav.TextColor = Color.Red;
             else
                 Fav.TextColor = Color.Gray;
+        }
+
+        private async void Button_Clicked(object sender, EventArgs e)
+        {
+            bool loggedin = false;// Here Put The Login Thing
+            if (loggedin)
+            {
+                bool yesno = await DisplayAlert("Sending Request", "Are You Sure You Want To Request This Book ?", "Yes", "No");// Depending On His Answer
+            }
+            else
+            {
+                await PopupNavigation.Instance.PushAsync(new Login());
+            }
         }
     }
 }

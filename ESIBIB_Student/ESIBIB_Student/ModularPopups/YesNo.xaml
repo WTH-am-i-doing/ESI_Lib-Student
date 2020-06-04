@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage  xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup" xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="ESIBIB_Student.ModularPopups.YesNo">
+    <Frame CornerRadius="20" Margin="20" VerticalOptions="Center">
+        <StackLayout>
+            <Label x:Name="Text" Text=""  HorizontalTextAlignment="Center"/>
+            <Button Text="Yes" Clicked="Button_Clicked_1"/>
+            <Button Text="No" Clicked="Button_Clicked_0"/>
+        </StackLayout>
+    </Frame>
+</pages:PopupPage>

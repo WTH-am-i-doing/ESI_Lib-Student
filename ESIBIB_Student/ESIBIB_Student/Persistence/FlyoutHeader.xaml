@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d"
+             mc:Ignorable="d" Visual="Material"
              x:Class="ESIBIB_Student.Persistence.FlyoutHeader">
     <Grid BackgroundColor="Black">
         <Image Aspect="AspectFill"
@@ -11,8 +11,9 @@
                Opacity="0.6" />
         <Label Text="ESI-SBA Library"
                TextColor="White"
-               FontAttributes="Bold"
+               FontAttributes="Bold" FontSize="32"
                HorizontalTextAlignment="Center"
                VerticalTextAlignment="Center" />
+        <Button Text="&#xf007;" Clicked="Button_Clicked" FontFamily="{x:StaticResource Key=Solid}" VerticalOptions="End" HorizontalOptions="Fill"/>
     </Grid>
 </ContentView>

@@ -16,9 +16,6 @@ namespace ESIBIB_Student.Persistence
         {
         }
 
-
-
-
         public async Task<List<Book>> GetAllBooks()
         {
 
@@ -27,7 +24,7 @@ namespace ESIBIB_Student.Persistence
                 return (await firebase
                .Child("Book")
                .OnceAsync<Book>()).Select(item => new Book
-               {
+               { 
                    ID = item.Object.ID,
                    Title = item.Object.Title,
                    Author = item.Object.Author,

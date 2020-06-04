@@ -9,7 +9,7 @@
     <StackLayout VerticalOptions="CenterAndExpand" Padding="10">
         <CarouselView ItemsSource="{Binding carouselItms}" PeekAreaInsets="10" HeightRequest="400" IndicatorView="indicatorView">
             <CarouselView.ItemsLayout>
-                <LinearItemsLayout Orientation="Vertical"
+                <LinearItemsLayout Orientation="Horizontal"
                            ItemSpacing="10" />
             </CarouselView.ItemsLayout>
             <CarouselView.ItemTemplate>
