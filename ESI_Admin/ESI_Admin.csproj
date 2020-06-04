@@ -46,14 +46,90 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="acntsettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="acntsettings.Designer.cs">
+      <DependentUpon>acntsettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="add.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="add.Designer.cs">
+      <DependentUpon>add.cs</DependentUpon>
+    </Compile>
+    <Compile Include="booklist.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="booklist.Designer.cs">
+      <DependentUpon>booklist.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BookRens.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BookRens.Designer.cs">
+      <DependentUpon>BookRens.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DBAccess.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="HomePage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HomePage.Designer.cs">
+      <DependentUpon>HomePage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PasswordReq.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PasswordReq.Designer.cs">
+      <DependentUpon>PasswordReq.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="remove.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="remove.Designer.cs">
+      <DependentUpon>remove.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SignUp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SignUp.Designer.cs">
+      <DependentUpon>SignUp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="update.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="update.Designer.cs">
+      <DependentUpon>update.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="acntsettings.resx">
+      <DependentUpon>acntsettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="add.resx">
+      <DependentUpon>add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="booklist.resx">
+      <DependentUpon>booklist.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BookRens.resx">
+      <DependentUpon>BookRens.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HomePage.resx">
+      <DependentUpon>HomePage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PasswordReq.resx">
+      <DependentUpon>PasswordReq.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -63,6 +139,15 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="remove.resx">
+      <DependentUpon>remove.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SignUp.resx">
+      <DependentUpon>SignUp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="update.resx">
+      <DependentUpon>update.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
