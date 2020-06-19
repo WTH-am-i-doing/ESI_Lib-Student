@@ -1,5 +1,6 @@
 ﻿using ESIBIB_Student.Models;
 using ESIBIB_Student.Views;
+using SQLite;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,9 +11,12 @@ namespace ESIBIB_Student.Persistence
 {
     class BookSearchHandler : SearchHandler
     {
+        public static SQLiteAsyncConnection _connection;
         protected override async void OnQueryChanged(string oldValue, string newValue)
         {
-            FirebaseHelper helper = new FirebaseHelper();
+            _connection = DependencyService.Get<ISQLiteDb>().GetConnection();
+            await _connection.CreateTableAsync<Book>();
+            var books = await _connection.Table<Book>().ToListAsync();
             base.OnQueryChanged(oldValue, newValue);
 
             if (string.IsNullOrWhiteSpace(newValue))
@@ -21,7 +25,7 @@ namespace ESIBIB_Student.Persistence
             }
             else
             {
-                ItemsSource = (await helper.GetAllBooks()).Where(b =>
+                ItemsSource = books.Where(b =>
                 {
                     return string.Concat(b.Title , " ",b.Author, " ",b.Description).ToLower().Contains(newValue.ToLower());
                 }).ToList();
