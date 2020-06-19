@@ -35,8 +35,6 @@ namespace ESIBIB_Student.Persistence
         protected override async void OnItemSelected(object item)
         {
             base.OnItemSelected(item);
-
-            // Note: strings will be URL encoded for navigation (e.g. "Blue Monkey" becomes "Blue%20Monkey"). Therefore, decode at the receiver.
             await (App.Current.MainPage as Xamarin.Forms.Shell).Navigation.PushAsync(new BookView(BooksList._connection,item as Book));
         }
     }
