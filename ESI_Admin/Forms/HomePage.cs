@@ -119,5 +119,10 @@ namespace ESI_Admin
             this.Close();
 
         }
+
+        private void panel2_Paint_1(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

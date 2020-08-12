@@ -8,15 +8,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SQLite;
 
 namespace ESI_Admin
 {
     public partial class remove : Form
     {
-        DBAccess objct = new DBAccess();
-        public string id, isbn, title, author, description, numAvailable;
-        DataTable dtbooks = new DataTable();
-        
+        //DBAccess objct = new DBAccess();
+        public string  isbn, title, author, description, numAvailable;
+        public int IDBook;
+        //DataTable dtbooks = new DataTable();
+        Database dbobject = new Database();
+
 
         private void remove_Load(object sender, EventArgs e)
         {
@@ -52,21 +55,24 @@ namespace ESI_Admin
             }
             else
             {
-                string query = "Select * from books Where isbn ='" + isbn + "' OR title ='" + title + "' ";
-                objct.readDatathroughAdapter(query, dtbooks);
-
-                if (dtbooks.Rows.Count == 1)
-                {
-
+                string query = "Select * from Books Where ISBN ='" + isbn + "' OR Title ='" + title + "' ";
+                SQLiteCommand selectCommand = new SQLiteCommand(query, dbobject.myConnection);
+                dbobject.OpenConnection();
+                SQLiteDataReader resault = selectCommand.ExecuteReader();
+                if (resault.HasRows)
+                {   
                     label6.Text = "available";
-                    objct.closeConn();
-                    id = dtbooks.Rows[0]["id"].ToString();
-               
+                    while (resault.Read())
+                    {
+                        IDBook = Convert.ToInt32(resault["ID"]);
+                        break;
+                    }
                 }
                 else
                 {
                     label6.Text = "not available";
                 }
+                dbobject.CloseConnection();
             }
         }
 
@@ -78,13 +84,13 @@ namespace ESI_Admin
 
                 if (dialog == DialogResult.Yes)
                 {
-                    string query = "DELETE from books where id = '" + id + "'";
-                    SqlCommand deleteCommand = new SqlCommand(query);
+                    string query = "DELETE from Books where ID = '" + IDBook + "'";
+                    SQLiteCommand deleteCommand = new SQLiteCommand(query,dbobject.myConnection);
+                    dbobject.OpenConnection();
+                    var resault = deleteCommand.ExecuteNonQuery();
+                    dbobject.CloseConnection();
 
-                    
-
-                    int row = objct.executeQuery(deleteCommand);
-                    if (row == 1)
+                    if (resault==1)
                     {
                         MessageBox.Show("done deletting!");
                     }
