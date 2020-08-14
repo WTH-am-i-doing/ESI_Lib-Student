@@ -28,6 +28,7 @@ namespace ESIBIB_Student.Views
         public BooksList()
         {
             InitializeComponent();
+            bookList_Refreshing(null, null);
             _connection = DependencyService.Get<ISQLiteDb>().GetConnection();
         }
 
@@ -44,7 +45,7 @@ namespace ESIBIB_Student.Views
         {
             try { 
                 var allBOOKs = await firebaseHelper.GetAllBooks();
-                //var favs = _books.Where(b => b.isFavorite);
+                //# var favs = _books.Where(b => b.isFavorite);
                 await _connection.DropTableAsync<Book>();
                 await _connection.CreateTableAsync<Book>();
                 await _connection.InsertAllAsync(allBOOKs);
@@ -52,9 +53,8 @@ namespace ESIBIB_Student.Views
             }
             catch
             {
-                await DisplayAlert("Error", "Check Your Internet Connection", "Alright");
+                await DisplayAlert("Problem", "Currently you Don't Have An Internet Connexion So We Won't Able To Laod New Books, When You Connect Please Reload The App. Thankfully You Will Be able to See The Saved Books", "Ok");
             }
-            bookList.EndRefresh();
         }
 
         private async void MenuItem_Clicked(object sender, EventArgs e)
@@ -70,6 +70,12 @@ namespace ESIBIB_Student.Views
         {
             var book = e.Item as Book;
             await Shell.Current.Navigation.PushAsync(new BookView(_connection,book));
+        }
+
+        private async void bookList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var book = e.CurrentSelection.First() as Book;
+            await Shell.Current.Navigation.PushAsync(new BookView(_connection, book));
         }
     }
 }

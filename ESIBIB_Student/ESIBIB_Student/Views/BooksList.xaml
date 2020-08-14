@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:Persistence="clr-namespace:ESIBIB_Student.Persistence"
-             mc:Ignorable="d" Visual="Material"
+             mc:Ignorable="d" Visual="Material" BackgroundColor="#ddd"
              x:Class="ESIBIB_Student.Views.BooksList">
 
     <Shell.SearchHandler>
@@ -21,31 +21,29 @@
             </Persistence:BookSearchHandler.ItemTemplate>
         </Persistence:BookSearchHandler>
     </Shell.SearchHandler>
-    <Shell.TitleView>
-        <Label Text="Test" HorizontalOptions="Center" VerticalOptions="Center"/>
-    </Shell.TitleView>
     <StackLayout>
-        <ListView x:Name="bookList" HasUnevenRows="True"
-                  ItemTapped="bookList_ItemTapped" SelectionMode="None"
-                  IsPullToRefreshEnabled="True" Refreshing="bookList_Refreshing" SeparatorVisibility="None">
-            <ListView.ItemTemplate>
+        <CollectionView x:Name="bookList" Margin="8,1"
+                        SelectionMode="Single"
+                        SelectionChanged="bookList_SelectionChanged" >
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Orientation="Vertical"
+                        Span="2"
+                        VerticalItemSpacing="6"
+                        HorizontalItemSpacing="10" />
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <ViewCell>
-                        <Frame Padding="2" Margin="2" CornerRadius="10" BorderColor="Gray" BackgroundColor="WhiteSmoke">
-                            <!-- Each Element of the list will be displayed according to this stack layout -->
-                            <StackLayout Orientation="Horizontal" Padding="10" Visual="Material">
-                                <Image Source="{Binding Coverurl}" HeightRequest="100" Margin="20,0,20,0"/>
-                                <StackLayout HorizontalOptions="StartAndExpand">
-                                    <Label Text="{Binding Title}" FontSize="18" TextColor="Black" FontAttributes="Bold"/>
-                                    <Label Text="{Binding Author}" FontSize="12" TextColor="Black"/>
-                                    <Label Text="{Binding Available,StringFormat='Available : {0}'}" TextColor="Black" FontSize="10" FontAttributes="Bold"/>
-                                </StackLayout>
-                            </StackLayout>
-                        </Frame>
-                    </ViewCell>
+                    <Frame Padding="2" HasShadow="True" Margin="0" CornerRadius="10" BackgroundColor="White">
+                        <!-- Each Element of the list will be displayed according to this stack layout -->
+                        <StackLayout Orientation="Vertical" Padding="10" Visual="Material">
+                            <Image Source="{Binding Coverurl}" HeightRequest="150" Margin="20,0,20,0"/>
+                            <Label Text="{Binding Title}" FontSize="18" TextColor="Black" FontAttributes="Bold"/>
+                            <Label Text="{Binding Author}" FontSize="12" TextColor="Black"/>
+                        </StackLayout>
+                    </Frame>
                 </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
     </StackLayout>
     
     
