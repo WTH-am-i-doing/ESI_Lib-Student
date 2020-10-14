@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HomePage));
             this.sidemenupanel = new System.Windows.Forms.Panel();
+            this.button8 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
@@ -41,20 +42,20 @@
             this.EditButton = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.ChildFormContainer = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.button7 = new System.Windows.Forms.Button();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.button7 = new System.Windows.Forms.Button();
             this.sidemenupanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.ChildFormContainer.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // sidemenupanel
             // 
             this.sidemenupanel.AutoScroll = true;
             this.sidemenupanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("sidemenupanel.BackgroundImage")));
+            this.sidemenupanel.Controls.Add(this.button8);
             this.sidemenupanel.Controls.Add(this.pictureBox1);
             this.sidemenupanel.Controls.Add(this.button5);
             this.sidemenupanel.Controls.Add(this.button4);
@@ -66,6 +67,27 @@
             this.sidemenupanel.Size = new System.Drawing.Size(201, 500);
             this.sidemenupanel.TabIndex = 0;
             this.sidemenupanel.Paint += new System.Windows.Forms.PaintEventHandler(this.sidemenupanel_Paint);
+            // 
+            // button8
+            // 
+            this.button8.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.button8.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.button8.FlatAppearance.BorderSize = 0;
+            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button8.Font = new System.Drawing.Font("Tahoma", 9.75F);
+            this.button8.ForeColor = System.Drawing.Color.White;
+            this.button8.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.button8.Location = new System.Drawing.Point(3, 121);
+            this.button8.Name = "button8";
+            this.button8.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.button8.Size = new System.Drawing.Size(196, 37);
+            this.button8.TabIndex = 12;
+            this.button8.Text = "HOME";
+            this.button8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button8.UseVisualStyleBackColor = false;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // pictureBox1
             // 
@@ -89,7 +111,7 @@
             this.button5.Font = new System.Drawing.Font("Tahoma", 9.75F);
             this.button5.ForeColor = System.Drawing.Color.White;
             this.button5.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.button5.Location = new System.Drawing.Point(4, 348);
+            this.button5.Location = new System.Drawing.Point(3, 394);
             this.button5.Name = "button5";
             this.button5.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.button5.Size = new System.Drawing.Size(196, 37);
@@ -110,12 +132,12 @@
             this.button4.Font = new System.Drawing.Font("Tahoma", 9.75F);
             this.button4.ForeColor = System.Drawing.Color.White;
             this.button4.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.button4.Location = new System.Drawing.Point(4, 305);
+            this.button4.Location = new System.Drawing.Point(3, 351);
             this.button4.Name = "button4";
             this.button4.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.button4.Size = new System.Drawing.Size(195, 37);
             this.button4.TabIndex = 9;
-            this.button4.Text = "BOOK List";
+            this.button4.Text = "Requests";
             this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
@@ -129,7 +151,7 @@
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.button3);
-            this.panel1.Location = new System.Drawing.Point(3, 161);
+            this.panel1.Location = new System.Drawing.Point(2, 207);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(195, 138);
             this.panel1.TabIndex = 7;
@@ -199,7 +221,7 @@
             this.EditButton.Font = new System.Drawing.Font("Tahoma", 9.75F);
             this.EditButton.ForeColor = System.Drawing.Color.White;
             this.EditButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.EditButton.Location = new System.Drawing.Point(3, 118);
+            this.EditButton.Location = new System.Drawing.Point(2, 164);
             this.EditButton.Name = "EditButton";
             this.EditButton.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.EditButton.Size = new System.Drawing.Size(196, 37);
@@ -227,42 +249,41 @@
             // 
             // ChildFormContainer
             // 
-            this.ChildFormContainer.Controls.Add(this.panel2);
+            this.ChildFormContainer.Controls.Add(this.button7);
+            this.ChildFormContainer.Controls.Add(this.flowLayoutPanel1);
             this.ChildFormContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ChildFormContainer.Location = new System.Drawing.Point(201, 0);
             this.ChildFormContainer.Name = "ChildFormContainer";
             this.ChildFormContainer.Size = new System.Drawing.Size(594, 500);
             this.ChildFormContainer.TabIndex = 13;
             // 
-            // panel2
+            // flowLayoutPanel1
             // 
-            this.panel2.Controls.Add(this.button7);
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(594, 500);
-            this.panel2.TabIndex = 14;
-            // 
-            // button7
-            // 
-            this.button7.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.button7.FlatAppearance.BorderSize = 0;
-            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button7.Font = new System.Drawing.Font("Tahoma", 9.75F);
-            this.button7.ForeColor = System.Drawing.Color.White;
-            this.button7.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.button7.Location = new System.Drawing.Point(557, 10);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(25, 27);
-            this.button7.TabIndex = 15;
-            this.button7.Text = "X";
-            this.button7.UseVisualStyleBackColor = false;
-            this.button7.Click += new System.EventHandler(this.button7_Click_1);
+            this.flowLayoutPanel1.AutoScroll = true;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 33);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(594, 467);
+            this.flowLayoutPanel1.TabIndex = 0;
+            this.flowLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel1_Paint);
             // 
             // imageList1
             // 
             this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
             this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            // 
+            // button7
+            // 
+            this.button7.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.button7.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button7.ForeColor = System.Drawing.SystemColors.Control;
+            this.button7.Location = new System.Drawing.Point(565, 3);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(26, 27);
+            this.button7.TabIndex = 1;
+            this.button7.Text = "×";
+            this.button7.UseVisualStyleBackColor = false;
+            this.button7.Click += new System.EventHandler(this.button7_Click_3);
             // 
             // HomePage
             // 
@@ -280,7 +301,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.ChildFormContainer.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -297,9 +317,10 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Panel ChildFormContainer;
-        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.ImageList imageList1;
-        private System.Windows.Forms.Button button7;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.Button button7;
     }
 }

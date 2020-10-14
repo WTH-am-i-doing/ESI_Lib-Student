@@ -2,20 +2,20 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SQLite;
 
 namespace ESI_Admin
 {
     public partial class Form1 : Form
     {
-        DBAccess obj = new DBAccess();
-        DataTable dtUsers = new DataTable();
-        public static string id1;
-
+        Database dbobject = new Database();
+        public static int IDUser;
         public Form1()
         {
             InitializeComponent();
@@ -34,7 +34,7 @@ namespace ESI_Admin
 
 
         }
-
+        //sign in button
         private void button1_Click(object sender, EventArgs e)
         {
             string UserEmail = textBox1.Text;
@@ -49,25 +49,46 @@ namespace ESI_Admin
             }
             else
             {
-                
-                string query = "Select * from admins Where email='" + UserEmail + "'AND password ='" + UserPassword + "' ";
-                obj.readDatathroughAdapter(query, dtUsers);
 
-                if (dtUsers.Rows.Count == 1)
+                //string query = "Select * from admins Where email='" + UserEmail + "'AND password ='" + UserPassword + "' ";
+                //obj.readDatathroughAdapter(query, dtUsers);
+
+                //if (dtUsers.Rows.Count == 1)
+                //{
+                //    id1 = dtUsers.Rows[0]["id"].ToString();
+                //    obj.closeConn();
+                //    this.Hide();
+                //    HomePage home = new HomePage();
+                //    home.Show();
+                //}
+
+                string query = "SELECT * from Users Where Email='" + UserEmail +"'AND PassWord='"+ UserPassword +"'";
+                SQLiteCommand selectCommand = new SQLiteCommand(query, dbobject.myConnection);
+                dbobject.OpenConnection();
+                SQLiteDataReader resault = selectCommand.ExecuteReader();
+                
+                if (resault.HasRows)
                 {
-                    id1 = dtUsers.Rows[0]["id"].ToString();
-                    obj.closeConn();
+                    while (resault.Read())
+                    {
+                        IDUser = Convert.ToInt32(resault["ID"]);
+                        break;
+                    }
+                    dbobject.CloseConnection();
                     this.Hide();
                     HomePage home = new HomePage();
                     home.Show();
+                    
                 }
                 else
                 {
-                    MessageBox.Show("wrong email or password!");
+                    MessageBox.Show("wrong email or password , please retry!");
                 }
+
             }
         }
 
+        //close button
         private void button2_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -78,10 +99,23 @@ namespace ESI_Admin
 
         }
 
+        //sign up button
         private void button3_Click(object sender, EventArgs e)
         {
             PasswordReq passreq = new PasswordReq();
             passreq.Show();
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked)
+            {
+                textBox2.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                textBox2.UseSystemPasswordChar = true;
+            }
         }
     }
 }

@@ -79,6 +79,25 @@ namespace ESI_Admin
               .PutAsync(bk);
         }
 
+        //public async Task DeleteBook(string ISBN, string Title, Book bk, string key = null)
+        //{
+        //    QuerySnapshot snapshot = await collectionReference.Limit(batchSize).GetSnapshotAsync();
+        //    IReadOnlyList<DocumentSnapshot> documents = snapshot.Documents;
+        //    while (documents.Count > 0)
+        //    {
+        //        foreach (DocumentSnapshot document in documents)
+        //        {
+        //            Console.WriteLine("Deleting document {0}", document.Id);
+        //            await document.Reference.DeleteAsync();
+        //        }
+        //        snapshot = await collectionReference.Limit(batchSize).GetSnapshotAsync();
+        //        documents = snapshot.Documents;
+        //    }
+        //    Console.WriteLine("Finished deleting all documents from the collection.");
+        //}
+
+
+
         // THis Gets All The Requests
         public async Task<List<Request>> GetRequests()
         {
@@ -89,11 +108,11 @@ namespace ESI_Admin
                .Child("Book")
                .OnceAsync<Request>()).Select(item => new Request
                {
+                   ReqKey = item.Key,
                    BookISBN = item.Object.BookISBN,
                    BookTitle = item.Object.BookTitle,
                    dateTime = item.Object.dateTime,
                    isAccepted = item.Object.isAccepted,
-                   ReqKey = item.Object.ReqKey,
                    UserEmail = item.Object.UserEmail
                }).ToList();
             }
@@ -103,13 +122,12 @@ namespace ESI_Admin
             }
         }
 
-        public async Task UpdateRequest(Request rq,bool yesno)
+        public async Task UpdateRequest(string key,bool yesno)
         {
-            rq.isAccepted = yesno;
             await firebase
               .Child("Requests")
-              .Child(rq.ReqKey)
-              .PutAsync(rq);
+              .Child(key)
+              .Child("isAccepted").PutAsync(yesno);
         }
 
     }

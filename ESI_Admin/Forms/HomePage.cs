@@ -7,15 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using System.Data.SQLite;
 namespace ESI_Admin
 {
     public partial class HomePage : Form
     {
-        public HomePage()
+        Database dbobject = new Database();
+        List<Book> book;
+        public  HomePage()
         {
             InitializeComponent();
             //customisedesign();
+           
         }
 
         private Form activeForm = null;
@@ -66,8 +69,10 @@ namespace ESI_Admin
             //    submenu.Visible = false;
             //}
         }
-        private void HomePage_Load(object sender, EventArgs e)
+        private async void HomePage_Load(object sender, EventArgs e)
         {
+            book = await(new FirebaseHelper()).GetAllBooks();
+            AddBookRes();
 
         }
 
@@ -117,6 +122,82 @@ namespace ESI_Admin
         private void button7_Click_1(object sender, EventArgs e)
         {
             this.Close();
+
+        }
+
+        private void panel2_Paint_1(object sender, PaintEventArgs e)
+        {
+            
+        }
+        private void AddBookRes()
+        {
+            foreach (var bok in book)
+            {
+                BookRens br = new BookRens();
+                br._Title2 = bok.Title;
+                br._numavailable = bok.Available;
+                br._Isbn = bok.ISBN;
+                if (flowLayoutPanel1.Controls.Count < 0)
+                {
+                    flowLayoutPanel1.Controls.Clear();
+                }
+                else
+                {
+                    flowLayoutPanel1.Controls.Add(br);
+                }
+
+            }
+
+
+            //string query = "SELECT * from Books ";
+            //SQLiteCommand selectCommand = new SQLiteCommand(query, dbobject.myConnection);
+            //dbobject.OpenConnection();
+            //SQLiteDataReader resault = selectCommand.ExecuteReader();
+            //if (resault.HasRows)
+            //{
+            //    while (resault.Read())
+            //    {
+            //        BookRens br = new BookRens();
+            //        br._Title2 = resault["Title"].ToString();
+            //        br._numavailable = resault["NumAvailable"].ToString();
+
+            //        if (panel2.Controls.Count < 0)
+            //        {
+            //            panel2.Controls.Clear();
+            //        }
+            //        else
+            //        {
+            //            panel2.Controls.Add(br);
+            //        }
+
+            //    }
+            //    dbobject.CloseConnection();
+            //}
+
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+            
+        }
+
+        private void button7_Click_2(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button7_Click_3(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
 
         }
     }

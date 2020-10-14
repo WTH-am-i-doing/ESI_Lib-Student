@@ -9,12 +9,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Data.SQLite;
 
 namespace ESI_Admin
 {
     public partial class add : Form
     {
-        DBAccess dbobj = new DBAccess();
+        Database dbobject = new Database();
         private FirebaseHelper helper = new FirebaseHelper();
 
         public add()
@@ -40,14 +41,20 @@ namespace ESI_Admin
             await helper.AddBook(bk);
 
 
-            /*//description??
-            string isbn = textBox1.Text; //could be null
-            string title = textBox2.Text; //must not be null
-            string author = textBox3.Text; //must not be null
-            string description = textBox5.Text; //could be null
-            string numAvailable =textBox4.Text; //could be null
+            //description??
+            string Author = author.Text;
+            int Available = (int)available.Value;
+            string Coverurl = CoverURL.Text;
+            string Description = description.Text;
+            string ISBN = isbn.Text;
+            string Title = title.Text;
+            //string isbn1 = isbn.Text; //could be null
+            //string title = textBox2.Text; //must not be null
+            //string author = textBox3.Text; //must not be null
+            //string description = textBox5.Text; //could be null
+            //string numAvailable =textBox4.Text; //could be null
 
-            //condition so the user fill the important parts
+            /*//condition so the user fill the important parts
             if (title.Equals(""))
             {
                 MessageBox.Show("please enter title");
@@ -76,9 +83,30 @@ namespace ESI_Admin
                 }
                 
                 //MessageBox.Show("Book Added", "The Book Has Beed Added to The Database", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            } 
-*/
-        
+            } */
+
+            string query = "INSERT into Books (ISBN,Title,Author,CoverURL,Description,NumAvailable) values (@ISBN,@Title,@Author,@Coverurl,@Description,@Available)";
+            SQLiteCommand insertCommand = new SQLiteCommand(query, dbobject.myConnection);
+            dbobject.OpenConnection();
+            insertCommand.Parameters.AddWithValue("@ISBN", ISBN);
+            insertCommand.Parameters.AddWithValue("@Title", Title);
+            insertCommand.Parameters.AddWithValue("@Author", Author);
+            insertCommand.Parameters.AddWithValue("@Coverurl", Coverurl);
+            insertCommand.Parameters.AddWithValue("@Description", Description);
+            insertCommand.Parameters.AddWithValue("@Available", Available);
+            var resault = insertCommand.ExecuteNonQuery();
+            dbobject.CloseConnection();
+            if (resault == 1)
+            {
+                MessageBox.Show("The Book Has Beed Added to The Database", "Book Added",  MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("error retry!");
+            }
+            this.Hide();
+
+
         }
 
         private void add_Load(object sender, EventArgs e)
@@ -107,9 +135,14 @@ namespace ESI_Admin
             }
             catch
             {
-                MessageBox.Show("Couldn't Fin The Book Using The API", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Couldn't Find The Book Using The API", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

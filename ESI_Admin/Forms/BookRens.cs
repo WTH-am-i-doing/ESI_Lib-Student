@@ -19,7 +19,8 @@ namespace ESI_Admin
         #region properties
 
         private string Title;
-        private string num_avail;
+        private string Isbn;
+        private int num_avail;
         private Image Icon;
 
         [Category("custum props")]
@@ -30,10 +31,10 @@ namespace ESI_Admin
         }
 
         [Category("custum props")]
-        public string _numavailable
+        public int _numavailable
         {
             get { return num_avail; }
-            set { num_avail = value; label6.Text = value; }
+            set { num_avail = value; label3.Text = value.ToString(); }
         }
 
         [Category("custum props")]
@@ -42,11 +43,26 @@ namespace ESI_Admin
             get { return Icon ; }
             set { Icon = value; pictureBox1.Image = value; }
         }
+        public string _Isbn
+        {
+            get { return Isbn; }
+            set { Isbn = value; label6.Text = value; }
+        }
 
         #endregion
 
 
         public void BookRens_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
         {
 
         }
