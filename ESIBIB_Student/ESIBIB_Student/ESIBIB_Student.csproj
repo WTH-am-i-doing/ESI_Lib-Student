@@ -14,17 +14,14 @@
   <ItemGroup>
     <PackageReference Include="FirebaseDatabase.net" Version="4.0.4" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
-    <PackageReference Include="Rg.Plugins.Popup" Version="2.0.0.2" />
+    <PackageReference Include="Rg.Plugins.Popup" Version="2.0.0.3" />
     <PackageReference Include="sqlite-net-pcl" Version="1.7.335" />
-    <PackageReference Include="Xamarin.Forms" Version="4.6.0.800" />
+    <PackageReference Include="Xamarin.Forms" Version="4.8.0.1269" />
     <PackageReference Include="Xamarin.Essentials" Version="1.5.3.2" />
-    <PackageReference Include="Xamarin.Forms.Visual.Material" Version="4.6.0.800" />
+    <PackageReference Include="Xamarin.Forms.Visual.Material" Version="4.8.0.1269" />
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="ModularPopups\YesNo.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
     <EmbeddedResource Update="Persistence\FlyoutHeader.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>

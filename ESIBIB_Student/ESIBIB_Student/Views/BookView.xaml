@@ -4,20 +4,20 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" Visual="Material" Shell.NavBarIsVisible="False" Shell.TabBarIsVisible="False"
-             x:Class="ESIBIB_Student.Views.BookView" BackgroundColor="WhiteSmoke">
+             x:Class="ESIBIB_Student.Views.BookView" BackgroundColor="#ddd">
         
         <!-- Turn This Into Absolute Layout if Necessary I Guess it woudl eb better than the actual stack layout-->
         
         <ScrollView Margin="0">
             <StackLayout Margin="0"> 
                 <StackLayout Orientation="Horizontal">
-                    <Button Text="&#xf060;" FontFamily="{x:StaticResource Key=Solid}" Clicked="BackButton_Clicked" BackgroundColor="Transparent" TextColor="Black" FontSize="18" BorderColor="Black" CornerRadius="15" Margin="10" HorizontalOptions="StartAndExpand"/>
-                    <Button x:Name="Fav" FontFamily="{x:StaticResource Key=Solid}" Clicked="Fav_Clicked" Text="&#xf004;" CornerRadius="15" Margin="10" FontSize="18" BackgroundColor="Transparent"/>
+                    <Button Text="&#xf060;" FontFamily="{x:StaticResource Key=Solid}" Clicked="BackButton_Clicked" BackgroundColor="White" TextColor="Black" FontSize="18" BorderColor="Black" CornerRadius="15" Margin="10" HorizontalOptions="StartAndExpand"/>
+                    <Button x:Name="Fav" FontFamily="{x:StaticResource Key=Solid}" Clicked="Fav_Clicked" Text="&#xf004;" CornerRadius="15" Margin="10" FontSize="18" BackgroundColor="White"/>
                 </StackLayout>
                 <Frame x:Name="ImageSubview" HasShadow="False" BorderColor="Transparent" BackgroundColor="Transparent" CornerRadius="20" Margin="0,0,0,0" Padding="0" IsClippedToBounds="True" HorizontalOptions="Center" HeightRequest="210">
                     <Image BackgroundColor="Transparent" HeightRequest="210" Margin="0" Source="{Binding Coverurl}" x:Name="MainImg" HorizontalOptions="CenterAndExpand" WidthRequest="200" VerticalOptions="CenterAndExpand" Aspect="AspectFit"/>
                 </Frame>
-                <Frame BackgroundColor="Transparent" CornerRadius="12" Margin="10" Padding="5" BorderColor="Black">
+                <Frame BackgroundColor="White" HasShadow="True" CornerRadius="12" Margin="10" Padding="5">
                     <StackLayout Padding="10">
                        
                         <Label Text="{Binding Author}" TextColor="Gray"  HorizontalTextAlignment="Center" />

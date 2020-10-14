@@ -9,8 +9,8 @@ namespace ESIBIB_Student.Persistence
     {
         Task<string> LoginWithEmailAndPassword(string email, string password);
 
-        bool SignOut();
+        string SignUp(string email, string password);
 
-        bool IsSignIn();
+        string GetUserEmail();
     }
 }

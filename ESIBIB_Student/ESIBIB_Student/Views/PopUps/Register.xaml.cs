@@ -1,4 +1,5 @@
-﻿using Rg.Plugins.Popup.Pages;
+﻿using ESIBIB_Student.Persistence;
+using Rg.Plugins.Popup.Pages;
 using Rg.Plugins.Popup.Services;
 using System;
 using System.Collections.Generic;
@@ -14,28 +15,28 @@ namespace ESIBIB_Student.Views.PopUps
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Register : PopupPage
     {
+        IFirebaseAuthentication auth;
         public Register()
         {
             InitializeComponent();
+            auth = DependencyService.Get<IFirebaseAuthentication>();
         }
 
-        private void RegisterButton_Clicked(object sender, EventArgs e)
+        private async void RegisterButton_Clicked(object sender, EventArgs e)
         {
-            // Try And Send An Email To The User's Email And When He Enters The Email He Gets Added 
-            // To The Firebase Database
+            var token = auth.SignUp(email.Text, password.Text);
+            if (token == null)
+            {
+                await DisplayAlert("Success","Your Account Has Been Created, You Can Now Login","ok");
+                await PopupNavigation.Instance.PopAsync();
+            }
+            else
+                await DisplayAlert("Error", "There Has Been An Error, Try Again", "ok");
         }
 
         private async void BackButton_Clicked(object sender, EventArgs e)
         {
             await PopupNavigation.Instance.PopAsync();
-            try
-            {
-                //await PopupNavigation.Instance.PushAsync(new Login());
-            }
-            catch
-            {
-
-            }
         }
     }
 }
